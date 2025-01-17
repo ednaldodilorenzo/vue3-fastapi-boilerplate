@@ -5,30 +5,8 @@ const config = defineConfig({
 
 // vue.config.js
 module.exports = {
-  pluginOptions: {
-    s3Deploy: {
-      region: "sa-east-1",
-      bucket: "gestor-paroquial-spa",
-      staticHosting: true,
-      acl: "public-read",
-      gzip: "true",
-      registry: undefined,
-      awsProfile: "default",
-      overrideEndpoint: false,
-      createBucket: true,
-      staticIndexPage: "index.html",
-      staticErrorPage: "error.html",
-      assetPath: "dist",
-      assetMatch: "**",
-      deployPath: "/",
-      pwa: false,
-      enableCloudfront: false,
-      pluginVersion: "4.0.0-rc3",
-      uploadConcurrency: 5,
-    },
-  },
   devServer: {
-    proxy: "http://localhost:8000",
+    proxy: "http://localhost:5000",
   },
   configureWebpack: {
     devtool: "source-map",

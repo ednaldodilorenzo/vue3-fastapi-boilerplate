@@ -29,7 +29,7 @@ class UsuarioDao(BaseDao, IUsuarioDao):
     async def buscar_pelo_login(self, login: str) -> Usuario:
         return (
             await self.db_session.scalars(
-                select(Usuario).options(joinedload(Usuario.individuo)).where(Usuario.username == login)
+                select(Usuario).where(Usuario.username == login)
             )
         ).first()
 

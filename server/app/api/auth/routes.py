@@ -20,8 +20,6 @@ async def login(usuario_login: LoginRequest, response: Response, auth_service: A
         response.status_code = status.HTTP_401_UNAUTHORIZED
         return {status.HTTP_401_UNAUTHORIZED: "nome de usuário ou senha incorreta"}
     payload = {"user_id": usuario_logado.id, "papel": usuario_logado.papel}
-    if usuario_logado.individuo:
-        payload["id_paroquia"] = usuario_logado.individuo.id_paroquia
     jwt = encode_jwt(payload=payload)
     return LoginResponse(
         id_usuario=usuario_logado.id, nome_usuario=usuario_logado.nome, papel=usuario_logado.papel, token=jwt

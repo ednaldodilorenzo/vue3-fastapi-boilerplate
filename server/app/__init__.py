@@ -56,11 +56,6 @@ def init_app(start_db: bool = True) -> FastAPI:
 
     # Routers
     server.include_router(api.auth_router)
-    server.include_router(api.paroquia_router)
-    server.include_router(api.casal_router)
-    server.include_router(api.servico_router)
-    server.include_router(api.encontro_router)
-    server.include_router(api.circulo_router)
     server.include_router(api.individuo_router)
     server.include_router(api.usuario_router)
     server.add_exception_handler(RequestValidationError, validation_request_exception_handler)

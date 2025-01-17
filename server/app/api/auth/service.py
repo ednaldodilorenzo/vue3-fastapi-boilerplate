@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import Depends
 from jwt import PyJWTError
 from app.models.usuario import Usuario
-from app.models.casal import Individuo, TipoPessoa
+from app.models.individuo import Individuo
 from app.api.usuario.dao import UsuarioDao
 from app.api.indiviuo.service import IndividuoService
 from app.utils.auth import verify_password, decode_jwt, oauth2_scheme, hash_password

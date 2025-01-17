@@ -17,6 +17,7 @@ const ROUTES_DEFINITIONS = [
       roleList: [ROLES.GESTOR],
       label: "Indivíduos",
       icon: "bx bxs-contact",
+      requiresAuth: true,
     },
   },
   {
@@ -26,6 +27,7 @@ const ROUTES_DEFINITIONS = [
     meta: {
       roleList: [ROLES.GESTOR],
       label: "Indivíduos",
+      requiresAuth: true,
     },
   },
   {
@@ -35,6 +37,7 @@ const ROUTES_DEFINITIONS = [
     meta: {
       roleList: [ROLES.GESTOR],
       label: "Indivíduos",
+      requiresAuth: true,
     },
   },
 ];
