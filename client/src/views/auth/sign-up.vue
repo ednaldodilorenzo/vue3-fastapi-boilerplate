@@ -224,7 +224,7 @@ function onSubmit() {
     .signup(token, form.value)
     .then(() => {
       console.log("Entrou no then");
-      toast.success(`Usuário registrado com sucesso!`, {
+      toast.success("Usuário registrado com sucesso!", {
         position: "top-center",
         timeout: 5000,
         closeOnClick: true,
