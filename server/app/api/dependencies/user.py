@@ -33,8 +33,6 @@ async def get_current_user(
         nome=user.nome,
         username=user.username,
         papel=user.papel,
-        id_paroquia=id_paroquia,
-        id_individuo=user.id_individuo,
     )
 
 

@@ -1,5 +1,3 @@
-import { ROLES } from "@/utils/constants";
-
 const namespace = "individuo";
 
 const ROUTE_NAMES = {
@@ -14,7 +12,6 @@ const ROUTES_DEFINITIONS = [
     name: ROUTE_NAMES.INDEX,
     component: () => import("./indiviuo-lista.vue"),
     meta: {
-      roleList: [ROLES.GESTOR],
       label: "Indivíduos",
       icon: "bx bxs-contact",
       requiresAuth: true,
@@ -25,7 +22,6 @@ const ROUTES_DEFINITIONS = [
     name: ROUTE_NAMES.ADD,
     component: () => import("./individuo-change.vue"),
     meta: {
-      roleList: [ROLES.GESTOR],
       label: "Indivíduos",
       requiresAuth: true,
     },
@@ -35,7 +31,6 @@ const ROUTES_DEFINITIONS = [
     name: ROUTE_NAMES.EDIT,
     component: () => import("./individuo-change.vue"),
     meta: {
-      roleList: [ROLES.GESTOR],
       label: "Indivíduos",
       requiresAuth: true,
     },

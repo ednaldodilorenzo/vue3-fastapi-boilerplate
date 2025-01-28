@@ -109,13 +109,7 @@ import { debounce } from "@/utils/support";
 
 export default {
   name: "TableComponent",
-  emits: [
-    "trigger-page",
-    "new-clicked",
-    "action-clicked",
-    "search-input",
-    "back-clicked",
-  ],
+  emits: ["trigger-page", "action-clicked"],
   props: {
     items: {
       type: [Array, Function],
@@ -153,9 +147,6 @@ export default {
     },
   },
   methods: {
-    clickNew() {
-      this.$emit("new-clicked");
-    },
     clickBack() {
       this.$emit("back-clicked");
     },

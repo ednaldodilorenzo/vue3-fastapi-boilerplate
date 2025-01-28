@@ -28,7 +28,7 @@ def upgrade():
         sa.Column("nascimento", sa.Date(), nullable=False),
         sa.Column("apelido", sa.String(), nullable=False),
         sa.Column("cpf", sa.String(), nullable=False),
-        sa.Column("extenso", sa.String(), server_default="", nullable=False),
+        sa.Column("filter", sa.String(), server_default="", nullable=False),
         sa.PrimaryKeyConstraint("id"),
     )
     op.create_index(op.f("ix_individuo_id"), "individuo", ["id"], unique=False)

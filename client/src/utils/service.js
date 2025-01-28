@@ -6,24 +6,24 @@ class GenericService {
   }
 
   async findAll(params = {}) {
-    const resp = await requester.get(`${this.url}/`, params);
+    const resp = await requester.get(`${this.url}`, params);
     return resp.data;
   }
 
-  async findById(id) {
+  findById = async (id) => {
     const resp = await requester.get(`${this.url}/${id}`);
     return resp.data;
-  }
+  };
 
-  async create(item) {
-    const resp = await requester.post(`${this.url}/`, item);
+  create = async (item) => {
+    const resp = await requester.post(`${this.url}`, item);
     return resp;
-  }
+  };
 
-  async modify(id, item) {
+  modify = async (id, item) => {
     const resp = await requester.patch(`${this.url}/${id}`, item);
     return resp.data;
-  }
+  };
 }
 
 export default GenericService;

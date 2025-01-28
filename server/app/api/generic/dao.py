@@ -42,25 +42,45 @@ class BaseDao:
 
     async def alterar(self, _id, item):
         result = await self.db_session.execute(
-            update(self._entity).where(self._entity.id == _id).values(item).returning(self._entity)
+            update(self._entity)
+            .where(self._entity.id == _id)
+            .values(item)
+            .returning(self._entity)
         )
 
         return result.scalars().first()
 
-    async def buscar_todos(self, page: int, page_size: int, pagination: bool = True):
+    async def buscar_todos(
+        self, page: int, page_size: int, pagination: bool = True, filter: str = ""
+    ):
+        query = select(self._entity)
+
+        if filter:
+            query = query.where(self._entity.filter == filter)
+
         return (
-            await self.paginate(select(self._entity), page, page_size)
+            await self.paginate(query, page, page_size)
             if pagination
-            else (await self.db_session.scalars(select(self._entity))).all()
+            else (await self.db_session.scalars(query)).all()
         )
 
     async def buscar_por_id(self, id_entity):
-        return (await self.db_session.scalars(select(self._entity).where(self._entity.id == id_entity))).first()
+        return (
+            await self.db_session.scalars(
+                select(self._entity).where(self._entity.id == id_entity)
+            )
+        ).first()
 
     async def paginate(self, query: Select, page: int, page_size: int) -> dict:
         return {
-            "count": await self.db_session.scalar(select(func.count()).select_from(query.subquery())),
-            "items": (await self.db_session.scalars(query.limit(page_size).offset((page - 1) * page_size))).all(),
+            "count": await self.db_session.scalar(
+                select(func.count()).select_from(query.subquery())
+            ),
+            "items": (
+                await self.db_session.scalars(
+                    query.limit(page_size).offset((page - 1) * page_size)
+                )
+            ).all(),
             "page": page,
             "page_size": page_size,
         }

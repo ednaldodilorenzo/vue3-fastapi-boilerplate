@@ -18,7 +18,7 @@ class Individuo(Base):
     nascimento: Mapped[date] = mapped_column(nullable=False)
     apelido: Mapped[str] = mapped_column(nullable=False)
     cpf: Mapped[str] = mapped_column()
-    extenso: Mapped[str] = mapped_column(nullable=False, server_default="")
+    filter: Mapped[str] = mapped_column(nullable=False, server_default="")
 
 
 @event.listens_for(Individuo, "before_insert")

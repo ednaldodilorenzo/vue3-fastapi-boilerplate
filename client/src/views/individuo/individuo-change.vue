@@ -147,12 +147,8 @@ if (individuoId) {
 function handleSubmit() {
   loading.show();
   const method = individuoId
-    ? saveForm(
-        individuoService.update.bind(individuoService),
-        individuoId,
-        form
-      )
-    : saveForm(individuoService.create.bind(individuoService), form);
+    ? saveForm(individuoService.modify, individuoId, form)
+    : saveForm(individuoService.create, form);
 
   method
     .then((value) => {

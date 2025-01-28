@@ -4,6 +4,34 @@
       {{ title }}
     </div>
     <div class="card-body">
+      <nav class="navbar bg-body-tertiary mb-3">
+        <div class="d-flex w-100">
+          <div style="width: 15%">
+            <a
+              href="javascript:void(0)"
+              v-if="showBack"
+              @click="clickBack"
+              class="btn btn-outline-primary me-2"
+              ><i class="bx bx-arrow-back"></i
+            ></a>
+
+            <a href="#" @click="clickNew()" class="btn btn-primary">+ Novo</a>
+          </div>
+          <div style="width: 85%">
+            <input
+              v-if="showFilter"
+              v-autofocus
+              v-model="searchQuery"
+              class="form-control me-2 w-75"
+              type="search"
+              name="filtro"
+              placeholder="Pesquisar"
+              aria-label="Search"
+            />
+          </div>
+        </div>
+      </nav>
+
       <bootstrap-table
         @search-input="emmitSearchInput"
         @trigger-page="onPageChange"
